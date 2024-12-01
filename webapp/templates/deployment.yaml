@@ -45,7 +45,12 @@ spec:
           readinessProbe:
             {{- toYaml .Values.readinessProbe | nindent 12 }}
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "200m"
           {{- with .Values.volumeMounts }}
           volumeMounts:
             {{- toYaml . | nindent 12 }}
