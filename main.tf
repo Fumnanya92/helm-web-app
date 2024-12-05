@@ -1,3 +1,13 @@
+terraform {
+  backend "s3" {
+    bucket         = "helm-terraform" # Replace with your bucket name
+    key            = "terraform/terraform.tfstate"    # Replace with a custom path
+    region         = "us-west-2"                      # Replace with your bucket region
+    dynamodb_table = "helm-terraform" # Replace with your DynamoDB table name
+    encrypt        = true                             # Enable encryption for added security
+  }
+}
+
 # Generate SSH Key Pair for EC2
 resource "tls_private_key" "helm" {
   algorithm = "RSA"
@@ -65,6 +75,14 @@ resource "aws_security_group" "helm_sg" {
   ingress {
     from_port   = 443
     to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  # tcp (8080) - open jenkins for web access
+  ingress {
+    from_port   = 8080
+    to_port     = 8080
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
