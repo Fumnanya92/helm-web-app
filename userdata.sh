@@ -44,14 +44,15 @@ newgrp docker <<EOF
     echo "Docker group applied. You can now use Docker without root."
 EOF
 
-# Minikube installation
+if ! command -v kubectl &> /dev/null; then
+    curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.27.4/bin/linux/amd64/kubectl
+    sudo install kubectl /usr/local/bin/kubectl
+fi
+
 if ! command -v minikube &> /dev/null; then
-    # Install kubectl
-    if ! command -v kubectl &> /dev/null; then
-        curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-        sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
-        minikube start
-    fi
+    curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+    sudo install minikube-linux-amd64 /usr/local/bin/minikube
+    minikube start
 fi
 
 # Validate Jenkins installation

@@ -87,6 +87,13 @@ resource "aws_security_group" "helm_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+# tcp (8080) - open kubectl for web access
+  ingress {
+    from_port   = 8081
+    to_port     = 8081
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 
   # SSH (22) - Allow access dynamically from EC2 instance IP
   ingress {
