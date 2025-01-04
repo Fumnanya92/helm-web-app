@@ -105,7 +105,7 @@ Imagine you're a chef in a busy kitchen. Kubernetes is the kitchen, Helm is the 
    ```
 
 3. **Initialize a Git Repository:**
-   ```bash
+   ```
    git init
    git add .
    git commit -m "Initial Helm webapp chart"
