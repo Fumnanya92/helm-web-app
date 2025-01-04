@@ -46,8 +46,8 @@ spec:
             {{- toYaml .Values.readinessProbe | nindent 12 }}
           resources:
             requests:
-              memory: "128Mi"
-              cpu: "100m"
+              memory: "180Mi"
+              cpu: "120m"
             limits:
               memory: "256Mi"
               cpu: "200m"
