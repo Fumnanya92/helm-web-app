@@ -58,7 +58,7 @@ Imagine you're a chef in a busy kitchen. Kubernetes is the kitchen, Helm is the 
 
 3. **Move the Helm Binary:**
    For Linux:
-   ```bash
+   ```
    mv linux-amd64/helm /usr/local/bin/helm
    ```
    For macOS:
