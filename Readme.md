@@ -100,7 +100,7 @@ Imagine you're a chef in a busy kitchen. Kubernetes is the kitchen, Helm is the 
    ```
 
 2. **Create a New Chart:**
-   ```bash
+   ```
    helm create webapp
    ```
 
