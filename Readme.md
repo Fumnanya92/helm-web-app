@@ -67,7 +67,7 @@ Imagine you're a chef in a busy kitchen. Kubernetes is the kitchen, Helm is the 
    ```
 
 4. **Verify Installation:**
-   ```bash
+   ```
    helm version
    ```
 
